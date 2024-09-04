@@ -34,7 +34,7 @@ func GetSMSConfig() (*sms.Param, error) {
 		return nil, err
 	}
 	var smsConfig sms.Param
-	err = cfg.GetWithUnmarshal("tencent_sms", &smsConfig, &config.JSONUnmarshaler{})
+	err = cfg.GetWithUnmarshal("sms", &smsConfig, &config.JSONUnmarshaler{})
 	if err != nil {
 		return nil, err
 	}
