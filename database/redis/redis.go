@@ -2,6 +2,7 @@ package redis
 
 import (
 	"fmt"
+
 	"github.com/go-redis/redis/v8"
 	"github.com/zachturing/util/database"
 )

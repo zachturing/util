@@ -6,7 +6,7 @@ import (
 )
 
 func TestGetMysqlConfig(t *testing.T) {
-	err := config.Register(config.Common, MapEnvToConfig, config.DevEnv)
+	err := config.Register(config.Common, MapEnvToConfig, config.ProdEnv)
 	if err != nil {
 		t.Errorf("register failed, err:%v", err)
 		return

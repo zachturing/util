@@ -12,8 +12,8 @@ type EnvType string
 const (
 	// DevEnv dev环境
 	DevEnv EnvType = "dev"
-	// OnlineEnv 正式环境
-	OnlineEnv EnvType = "prod"
+	// ProdEnv 正式环境
+	ProdEnv EnvType = "prod"
 )
 
 type Config interface {
