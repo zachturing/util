@@ -50,17 +50,47 @@ func TestGetSMSConfig(t *testing.T) {
 	t.Logf("sms config:+%v", cfg)
 }
 
-func TestGetAudioCloneRouteConfig(t *testing.T) {
+func TestGetCategoryList(t *testing.T) {
 	err := config.Register(config.Common, MapEnvToConfig, config.DevEnv)
 	if err != nil {
 		t.Errorf("register failed, err:%v", err)
 		return
 	}
 
-	cfg, err := GetAudioCloneRouteConfig()
+	cfg, err := GetCategoryList()
 	if err != nil {
-		t.Errorf("get sms config failed, err:%v", err)
+		t.Errorf("get category config failed, err:%v", err)
 		return
 	}
-	t.Logf("audio config config:+%v", cfg)
+	t.Logf("category config:+%v", cfg)
+}
+
+func TestGetFeatureList(t *testing.T) {
+	err := config.Register(config.Common, MapEnvToConfig, config.DevEnv)
+	if err != nil {
+		t.Errorf("register failed, err:%v", err)
+		return
+	}
+
+	cfg, err := GetFeatureList()
+	if err != nil {
+		t.Errorf("get feature config failed, err:%v", err)
+		return
+	}
+	t.Logf("feature config:+%v", cfg)
+}
+
+func TestGetSubjectList(t *testing.T) {
+	err := config.Register(config.Common, MapEnvToConfig, config.DevEnv)
+	if err != nil {
+		t.Errorf("register failed, err:%v", err)
+		return
+	}
+
+	cfg, err := GetSubjectList()
+	if err != nil {
+		t.Errorf("get subject config failed, err:%v", err)
+		return
+	}
+	t.Logf("subject config:+%v", cfg)
 }

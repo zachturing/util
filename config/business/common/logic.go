@@ -54,7 +54,3 @@ func GetOfficialAccountConfig() (*oaconfig.Config, error) {
 	}
 	return oaCfg, nil
 }
-
-func GetAudioCloneRouteConfig() (*database.DBConfig, error) {
-	return getConfig("audio_clone")
-}
