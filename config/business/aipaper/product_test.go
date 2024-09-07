@@ -7,7 +7,7 @@ import (
 )
 
 func TestGetProductList(t *testing.T) {
-	err := config.Register(config.Common, MapEnvToConfig, config.DevEnv)
+	err := config.Register(config.AIPaper, MapEnvToConfig, config.DevEnv)
 	if err != nil {
 		t.Errorf("register failed, err:%v", err)
 		return

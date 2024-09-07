@@ -10,7 +10,7 @@ type Product struct {
 }
 
 func GetProductList() ([]Product, error) {
-	cfg, err := config.Get(config.Common)
+	cfg, err := config.Get(config.AIPaper)
 	if err != nil {
 		return nil, err
 	}
