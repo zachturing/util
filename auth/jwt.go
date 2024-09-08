@@ -8,6 +8,10 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 )
 
+const (
+	TokenExpireTime = time.Hour * 24 * 7
+)
+
 // 指定加密密钥
 var jwtSecret = []byte("mix_paper_dev")
 
@@ -30,7 +34,7 @@ func GenerateToken(userID int) (string, error) {
 		UserID: userID,
 		RegisteredClaims: jwt.RegisteredClaims{
 			Subject:   strconv.Itoa(userID),
-			ExpiresAt: jwt.NewNumericDate(time.Now().Add(define.TokenExpireTime)),
+			ExpiresAt: jwt.NewNumericDate(time.Now().Add(TokenExpireTime)),
 		},
 	}
 
