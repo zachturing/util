@@ -94,3 +94,18 @@ func TestGetSubjectList(t *testing.T) {
 	}
 	t.Logf("subject config:+%v", cfg)
 }
+
+func TestGetMsgQueueConfig(t *testing.T) {
+	err := config.Register(config.Common, MapEnvToConfig, config.DevEnv)
+	if err != nil {
+		t.Errorf("register failed, err:%v", err)
+		return
+	}
+
+	cfg, err := GetMsgQueueConfig()
+	if err != nil {
+		t.Errorf("get redis config failed, err:%v", err)
+		return
+	}
+	t.Logf("redis config:+%v", cfg)
+}

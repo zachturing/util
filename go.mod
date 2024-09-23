@@ -11,6 +11,7 @@ require (
 	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
 	github.com/google/uuid v1.1.2
 	github.com/natefinch/lumberjack v2.0.0+incompatible
+	github.com/rabbitmq/amqp091-go v1.10.0 // indirect
 	github.com/silenceper/wechat/v2 v2.1.6
 	github.com/spf13/cast v1.5.1 // indirect
 	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.781

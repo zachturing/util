@@ -1,0 +1,50 @@
+syntax = "proto3";
+package ai.paper;
+
+enum MessageType{
+  GENERATE_OUTLINE = 0;
+  GENERATE_CONTENT = 1;
+  EDIT_OUTLINE = 2;
+  EDIT_CONTENT = 3;
+}
+
+enum UserLevel{
+  LEVEL_ANOYMOUS = 0;
+  LEVEL_NORMAL = 1;
+  LEVEL_VIP = 2;
+}
+
+message CommonObject{
+  int32 case_id = 1;
+  string case_path = 2;
+  UserLevel user_level = 3;
+}
+
+message OutlineObject{
+  // 题目
+  string title = 1;
+  // 模板id
+  int32 template_id= 2;
+  // 语言 中文/英文
+  string language = 3;
+  // 领域 学科 如0202 财政学类
+  string field= 4;
+  // 类型 本科 字数限制
+  string type= 5;
+  // 额外说明
+  string desp= 6;
+}
+
+message ContentObject{
+  // 额外说明
+  string desp= 2;
+}
+
+message AiPaperMessage{
+  MessageType message_type = 1;
+  CommonObject common_object = 2;
+  oneof message {
+    OutlineObject outline_object = 3;
+    ContentObject content_object = 4;
+  }
+}
