@@ -107,5 +107,5 @@ func TestGetMsgQueueConfig(t *testing.T) {
 		t.Errorf("get redis config failed, err:%v", err)
 		return
 	}
-	t.Logf("redis config:+%v", cfg)
+	t.Logf("msg queue config:+%v", cfg)
 }

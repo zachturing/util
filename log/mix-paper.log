@@ -9,3 +9,6 @@
 [2024-09-21 21:18:23.142] [DEBUG] [] [queue/consumer.go:63] [main.main.func3] [] [Received a message: Hello World!]
 [2024-09-21 21:18:50.931] [DEBUG] [] [queue/producer.go:73] [main.main] [] [[Producer(Hello world)] Sent Hello Worldxxx]
 [2024-09-21 21:18:50.946] [DEBUG] [] [queue/consumer.go:63] [main.main.func3] [] [Received a message: Hello Worldxxx]
+[2024-09-24 22:38:21.026] [ERROR] [] [queue/consumer.go:21] [main.failOnError] [] [%s: %sFailed to connect to RabbitMQdial tcp 172.81.233.2:5672: i/o timeout]
+[2024-09-24 22:39:47.710] [ERROR] [] [queue/consumer.go:21] [main.failOnError] [] [%s: %sFailed to connect to RabbitMQdial tcp 172.81.233.2:5672: i/o timeout]
+[2024-09-24 22:44:40.573] [ERROR] [] [queue/consumer.go:21] [main.failOnError] [] [%s: %sFailed to connect to RabbitMQdial tcp 49.234.241.169:15672: i/o timeout]

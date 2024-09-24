@@ -1,12 +1,44 @@
-package main
+package queue
 
-import "github.com/rabbitmq/amqp091-go"
+import (
+	"fmt"
 
-func demo() {
-	conn, err := amqp091.Dial("")
+	"github.com/rabbitmq/amqp091-go"
+	"github.com/zachturing/util/config/business/common"
+)
+
+var conn *amqp091.Connection
+
+func GetGlobalClient() *amqp091.Connection {
+	return conn
+}
+
+func InitMQ(conf common.MsgQueueConfig) error {
+	var err error
+	uri := fmt.Sprintf("amqp://%s:%s@%s:%d/%s", conf.Username, conf.Password, conf.Host, conf.Port, conf.Vhost)
+	fmt.Println("uri:", uri)
+	conn, err = amqp091.Dial(uri)
+	return err
+}
+
+func SendMsg(queueName string, msg string) error {
+	if conn == nil {
+		return fmt.Errorf("MQ client not initialized")
+	}
+	ch, err := conn.Channel()
 	if err != nil {
-		return
+		return fmt.Errorf("failed to open a channel: %v", err)
 	}
 
-	_ = conn
+	queue, err := ch.QueueDeclare(queueName, false, false, false, false, nil)
+	if err != nil {
+		return fmt.Errorf("failed to declare a queue: %v", err)
+	}
+
+	err = ch.Publish("", queue.Name, false, false, amqp091.Publishing{
+		ContentType: "text/plain",
+		Body:        []byte(msg),
+	})
+
+	return err
 }
