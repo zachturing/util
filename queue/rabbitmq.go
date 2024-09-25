@@ -30,12 +30,12 @@ func SendMsg(queueName string, msg string) error {
 		return fmt.Errorf("failed to open a channel: %v", err)
 	}
 
-	queue, err := ch.QueueDeclare(queueName, false, false, false, false, nil)
-	if err != nil {
-		return fmt.Errorf("failed to declare a queue: %v", err)
-	}
+	// queue, err := ch.QueueDeclare(queueName, false, false, false, false, nil)
+	// if err != nil {
+	// 	return fmt.Errorf("failed to declare a queue: %v", err)
+	// }
 
-	err = ch.Publish("", queue.Name, false, false, amqp091.Publishing{
+	err = ch.Publish("", queueName, false, false, amqp091.Publishing{
 		ContentType: "text/plain",
 		Body:        []byte(msg),
 	})
